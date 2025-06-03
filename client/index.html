@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Site do Cliente (com seu Pixel Local!)</title>
+    <script async src="myPixel.js"></script> 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const myButton = document.getElementById('myButton');
+            if (myButton) {
+                myButton.addEventListener('click', () => {
+                    if (window.myPixel && typeof window.myPixel === 'function') {
+                        window.myPixel('buttonClick', {
+                            buttonName: 'Comprar Agora',
+                            productId: 'PROD001',
+                            price: 49.99
+                        });
+                    }
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Bem-vindo ao Meu Site de Teste Local!</h1>
+    <p>Este site está usando seu pixel próprio para coletar dados.</p>
+    <button id="myButton">Clique para Disparar Evento Customizado</button>
+
+    <p>Verifique o console do navegador para ver o pixel enviando dados e o terminal do servidor para vê-los sendo recebidos!</p>
+</body>
+</html>
